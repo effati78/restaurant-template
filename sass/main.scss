@@ -1,0 +1,434 @@
+$color-dark: #262626;
+$color-black: #000;
+$color-primary: #d3ab55;
+$color-secondary : #bbb;
+$color-white: #bdc3c7;
+
+$font-sahel: Sahel,
+Tahoma;
+$font-Tanha: Tanha,
+Tahoma;
+
+@mixin textStyles {
+    font-weight: 300;
+}
+
+@mixin flexLayout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%fullSpace {
+    width: 100%;
+    height: 100%;
+}
+
+@font-face {
+    font-family: Sahel;
+    src: url("../fonts/sahel-font-v1.0.0-alpha14/Sahel.eot") format("eot");
+    src: url("../fonts/sahel-font-v1.0.0-alpha14/Sahel.ttf") format("ttf"), url("../fonts/sahel-font-v1.0.0-alpha14/Sahel.woff") format("woff");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Tanha;
+    src: url("../fonts/tanha-font-v0.9/Tanha.eot") format("eot");
+    src: url("../fonts/tanha-font-v0.9/Tanha.ttf") format("ttf"), url("../fonts/tanha-font-v0.9/Tanha.woff") format("woff");
+    font-weight: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+.checkbox:checked~.menu-navbar {
+    left: 0;
+}
+
+.checkbox:checked~.hamberger .label {
+    transform: rotatez(90deg);
+}
+
+.checkbox:checked~.hamberger .item-1 {
+    transform: rotatez(-40deg);
+}
+
+.checkbox:checked~.hamberger .item-2 {
+    opacity: 0;
+}
+
+.checkbox:checked~.hamberger .item-3 {
+    transform: rotatez(40deg);
+}
+
+.menu {
+    .label {
+        display: flex;
+        flex-flow: nowrap column;
+        justify-content: space-around;
+        position: fixed;
+        top: 10%;
+        right: 5%;
+        z-index: 999;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: all .6s;
+        @media only screen and (max-width: 900px) {
+            width: 30px;
+            height: 30px;
+        }
+        
+
+        div {
+            transform-origin: right;
+            width: 100%;
+            height: 4px;
+            background-color: $color-primary;
+            transition: all .6s .5s;
+            
+        }
+    }
+
+    &-navbar {
+        z-index: 200;
+        position: fixed;
+        top: 0;
+        left: -50vw;
+        background-color: rgba($color-primary, .9);
+        height: 100vh;
+        width: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .6s;
+
+        @media only screen and (max-width: 900px) {
+            width: 50vw;
+        }
+
+        &-ul {
+            li {
+                list-style: none;
+                text-align: center;
+
+                a {
+                    font-family: $font-Tanha;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 30px;
+                    line-height: 90px;
+                    transition: all .6s ease-in-out;
+
+                    @media only screen and (max-width: 900px) {
+                        font-size: 20px;
+                        line-height: 70px;
+                    }
+
+                    &:hover {
+                        color: $color-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+
+header {
+    font-family: $font-sahel;
+    color: $color-secondary;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba($color-black, 0.8), rgba($color-black, 0.6)), url(../images/bg.jpeg) center no-repeat;
+    background-size: cover;
+
+
+    .brand {
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 70px;
+            color: $color-primary;
+            border: 3px solid $color-primary;
+            border-radius: 50%;
+            height: 120px;
+            width: 120px;
+
+            @media only screen and (max-width: 900px) {
+                font-size: 35px;
+                height: 70px;
+                width: 70px;
+            }
+        }
+
+        div {
+            text-align: right;
+
+            .main-name {
+                font-size: 50px;
+
+                @media only screen and (max-width: 900px) {
+                    font-size: 30px;
+                }
+            }
+
+            .sub-name {
+                font-size: 18px;
+
+                @media only screen and (max-width: 900px) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .header-banner {
+        text-align: center;
+
+        .main-heading {
+            color: $color-primary;
+            font-size: 80px;
+            font-family: $font-Tanha;
+
+            @media only screen and (max-width: 900px) {
+                font-size: 40px;
+            }
+        }
+
+        .sub-heading {
+            font-size: 50px;
+
+            @media only screen and (max-width: 900px) {
+                font-size: 25px;
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            font-family: $font-sahel;
+            width: 170px;
+            height: 45px;
+            font-size: 15px;
+            border: 1px solid $color-primary;
+            border-radius: 2px;
+            background-color: transparent;
+            color: $color-primary;
+            transition: all .6s linear;
+
+            @media only screen and (max-width: 900px) {
+                width: 130px;
+            }
+
+            &:hover {
+                background-color: $color-primary;
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.gallery {
+    background-color: $color-dark;
+    .item-mob{
+        @media only screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    .cards-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: 33.3333%;
+            height: 30vw;
+            position: relative;
+            overflow: hidden;
+            @media only screen and (max-width: 900px) {
+                width: 50%;
+                height: 50vw;
+            }
+
+            &:hover .card-overlay {
+                left: 0;
+            }
+
+            &-overlay {
+                @extend %fullSpace;
+                @include flexLayout;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                left: -150%;
+                color: white;
+                background-color: rgba($color-primary, .6);
+                z-index: 10;
+                transition: left 0.5s;
+
+                &-heading {
+                    font-family: $font-Tanha;
+                    font-size: 50px;
+                    @include textStyles;
+
+                    @media only screen and (max-width: 900px) {
+                        font-size: 20px;
+                    }
+                }
+
+                &-paragraph {
+                    font-family: $font-Tanha;
+                    font-size: 30px;
+                    margin-bottom: 30px;
+                    @include textStyles;
+
+                    @media only screen and (max-width: 900px) {
+                        font-size: 10px;
+                    }
+                }
+
+                &-btn {
+                    width: 150px;
+                    height: 40px;
+                    color: $color-primary;
+                    background-color: white;
+                    font-family: $font-sahel;
+                    font-size: 14px;
+                    border: 1px solid white;
+                    border-radius: 30px;
+                    outline: none;
+                    cursor: pointer;
+
+                    @media only screen and (max-width: 900px) {
+                        width: 60px;
+                        height: 20px;
+                        font-size: 10px;
+                        margin-top: -20px;
+                    }
+                }
+            }
+
+            &-img {
+                @extend %fullSpace;
+                object-fit: cover;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+footer {
+    font-family: $font-sahel;
+    color: $color-secondary;
+    background-color: $color-dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .brand {
+        margin: 35px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 40px;
+            color: $color-primary;
+            border: 3px solid $color-primary;
+            border-radius: 50%;
+            height: 85px;
+            width: 85px;
+
+            @media only screen and (max-width: 900px) {
+                font-size: 30px;
+                height: 70px;
+                width: 70px;
+            }
+        }
+
+        div {
+            text-align: right;
+
+            .main-name {
+                font-size: 35px;
+
+                @media only screen and (max-width: 900px) {
+                    font-size: 25px;
+                }
+            }
+
+            .sub-name {
+                font-size: 12px;
+
+                @media only screen and (max-width: 900px) {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .social-footer {
+        display: flex;
+        margin-bottom: 35px;
+
+        .social-item {
+            margin: 0 10px;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all .6s ease-in-out;
+
+            @media only screen and (max-width: 900px) {
+                font-size: 20px;
+            }
+
+            &:hover {
+                text-shadow: 0 0 5px $color-black;
+                transform: rotate(360deg);
+                color: $color-primary;
+            }
+        }
+    }
+
+    .footer-copyright {
+        direction: rtl;
+        margin-bottom: 35px;
+        font-size: 20px;
+
+        @media only screen and (max-width: 900px) {
+            font-size: 10px;
+        }
+
+        a {
+            color: rgba($color: $color-secondary, $alpha: .6);
+            text-decoration: none;
+            transition: all .6s ease-in-out;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+}
